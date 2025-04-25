@@ -1,0 +1,14 @@
+services:
+  app:
+    image: zemli777/weather_app:${TAG:-latest}
+
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - API_KEY=${API_KEY:? Please enter API KEY }
+    env_file: .env
+     #- path: .env
+       #required: "false"
+    ports:
+      - "${PORT-8000}:${PORT-8000}"
