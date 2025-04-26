@@ -3,6 +3,9 @@ pipeline {
       label 'host'
     }
 
+    triggers {
+        githubPush()
+    }
 
     stages {
         stage('Build') {
