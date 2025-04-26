@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sudo docker run aquasec/trivy image zemli777/weather_app:latest
+                sudo docker run aquasec/trivy image zemli777/weather_app
                 }
         }
         stage('Deploy') {
