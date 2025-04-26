@@ -11,17 +11,17 @@ pipeline {
 
         stage('Build') {
             steps {
-                sudo docker-compose build
+                sh " sudo docker-compose build"
             }
         }
         stage('Test') {
             steps {
-                sudo docker run aquasec/trivy image zemli777/weather_app
+                sh "sudo docker run aquasec/trivy image zemli777/weather_app:latest"
                 }
         }
         stage('Deploy') {
             steps {
-                sudo docker-compose up
+                sh "sudo docker-compose up"
             }
         }
     }
