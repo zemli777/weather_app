@@ -8,19 +8,20 @@ pipeline {
     }
 
     stages {
+
         stage('Build') {
             steps {
-                echo 'Building..'
+                sudo docker-compose build
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
-            }
+                sudo docker run aquasec/trivy image zemli777/weather_app:latest
+                }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                sudo docker-compose up
             }
         }
     }
